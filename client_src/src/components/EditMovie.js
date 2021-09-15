@@ -85,8 +85,7 @@ class EditMovie extends Component{
         }
         const newMovie = {
             trackid: parseInt(this.state.trackid),
-            boxincome: parseInt(this.state.income),
-            prevmovieid: 0
+            boxincome: parseInt(this.state.income)
         }
         console.log(newMovie, newTrack)
         this.editMovie(newTrack, newMovie);
@@ -110,7 +109,7 @@ class EditMovie extends Component{
                 <form onSubmit={this.onSubmit.bind(this)}>
                     ID:
                 <div className="input-field inline">
-                        <input type="text" ref="id" name="trackid" value={this.state.trackid} onChange={this.handleInputChange.bind(this)}/>
+                        <input type="text" ref="id" name="trackid" value={this.state.trackid} readOnly/>
                     </div>
                     <div className="input-field">
                         <input id="name" type="text" ref="title" name="tracktitle" value={this.state.tracktitle} onChange={this.handleInputChange.bind(this)}/>
@@ -136,6 +135,10 @@ class EditMovie extends Component{
                         <input name="rating" type="number" ref="rating" name="ageRating" value={this.state.ageRating} onChange={this.handleInputChange.bind(this)}/>
                         <label htmlFor="rating"></label>
                     </div>
+
+                    {//TODO: edit genre
+                    }
+
                     <div className="input-field">
                         <input name="income" type="number" ref="income" name="income" value={this.state.income} onChange={this.handleInputChange.bind(this)}/>
                         <label htmlFor="income" className="active">Income (USD)</label>

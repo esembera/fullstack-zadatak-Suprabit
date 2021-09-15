@@ -4,7 +4,7 @@ import {Entity, model, property} from '@loopback/repository';
 export class Movie extends Entity {
   @property({
     type: 'number',
-    required: true,
+    required: false,
     scale: 0,
     id: 1,
     postgresql: {columnName: 'trackid', dataType: 'integer', dataLength: null, dataPrecision: null, dataScale: 0, nullable: 'NO'},
@@ -17,13 +17,6 @@ export class Movie extends Entity {
     postgresql: {columnName: 'boxincome', dataType: 'integer', dataLength: null, dataPrecision: null, dataScale: 0, nullable: 'YES'},
   })
   boxincome?: number;
-
-  @property({
-    type: 'number',
-    scale: 0,
-    postgresql: {columnName: 'prevmovieid', dataType: 'integer', dataLength: null, dataPrecision: null, dataScale: 0, nullable: 'YES'},
-  })
-  prevmovieid?: number;
 
   // Define well-known properties here
 

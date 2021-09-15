@@ -26,7 +26,6 @@ class AddMovie extends Component{
       
     onSubmit(a){
         const newTrack = {
-            trackid: parseInt(this.refs.id.value),
             tracktitle: this.refs.title.value,
             releasedate: this.refs.releasedate.value + "T00:00:00.000Z",
             duration: this.refs.hours.value*360 + this.refs.minutes.value * 6 + '0',
@@ -34,12 +33,9 @@ class AddMovie extends Component{
             trackrating: 0
         }
         const newMovie = {
-            trackid: parseInt(this.refs.id.value),
-            boxincome: parseInt(this.refs.income.value),
-            prevmovieid: 0
+            boxincome: parseInt(this.refs.income.value)
         }
         const newTrackGenre={
-            trackid: parseInt(this.refs.id.value),
             genreid: parseInt(this.refs.genre.value)
         }
         //console.log(newMovie, newTrackGenre, newTrack)
@@ -53,10 +49,6 @@ class AddMovie extends Component{
             <div>
                 <h1>Add new movie</h1>
                 <form onSubmit={this.onSubmit.bind(this)}>
-                    ID:
-                <div className="input-field inline">
-                        <input type="text" ref="id"/>
-                    </div>
                     <div className="input-field">
                         <input id="name" type="text" ref="title"/>
                         <label htmlFor="name">Title</label>
@@ -83,7 +75,7 @@ class AddMovie extends Component{
 
                     <div className="input-field">
                         <select ref="genre">
-                        <option value="" disabled defaultValue>Choose movie genre</option>
+                        <option value="" disabled selected hidden>Choose movie genre</option>
                         <option value="3">Anime Features</option>
                         <option value="4">Thrillers</option>
                         <option value="5">Comedies</option>

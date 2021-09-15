@@ -10,7 +10,6 @@ class Home extends Component{
             movies: [],
             currentPage: 1,
             moviesPerPage: 20
-
         }
     }
 
@@ -18,7 +17,7 @@ class Home extends Component{
         this.getMovies();
     }
     getMovies(){
-        axios.get('http://localhost:3000/track?filter={"limit":1000}').then(response => {
+        axios.get('http://localhost:3000/track').then(response => {
             this.setState({movies: response.data}, () => {
                 //console.log(this.state);
             })
