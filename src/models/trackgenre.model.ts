@@ -6,7 +6,7 @@ import {Entity, model, property} from '@loopback/repository';
 export class Trackgenre extends Entity {
   @property({
     type: 'number',
-    required: false,
+    required: true,
     scale: 0,
     id: 1,
     postgresql: {columnName: 'trackid', dataType: 'integer', dataLength: null, dataPrecision: null, dataScale: 0, nullable: 'NO'},

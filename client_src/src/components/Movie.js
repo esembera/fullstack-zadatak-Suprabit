@@ -31,7 +31,7 @@ class Movie extends Component{
                 response.data.releasedate=response.data.releasedate.substring(0,10);
                 response.data.hours = response.data.duration.hours;
                 response.data.minutes = response.data.duration.minutes;
-                console.log(response.data.hours, response.data.minutes)
+                //console.log(response.data.hours, response.data.minutes)
             })
         })
         .catch(err => console.log(err));
@@ -45,7 +45,7 @@ class Movie extends Component{
                 let genreID = response.data.genreid;
                 axios.get(`http://localhost:3000/genre/${genreID}`).then(response => {
                 this.setState({genreName: response.data}, () => {
-                    console.log(this.state);
+                    //console.log(this.state);
                 })
                 }).catch(err => console.log(err));
                 })
