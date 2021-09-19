@@ -20,7 +20,7 @@ class AddMovie extends Component{
             url: 'http://localhost:3000/trackgenre',
             data: newTrackGenre
         }).then(response => {
-            this.props.history.push('/');
+            this.props.history.push('/home');
         }).catch(err => console.log(err));
     }
       
@@ -38,7 +38,7 @@ class AddMovie extends Component{
         const newTrackGenre={
             genreid: parseInt(this.refs.genre.value)
         }
-        //console.log(newMovie, newTrackGenre, newTrack)
+        console.log(newMovie, newTrackGenre, newTrack)
         this.addMovie(newTrack, newMovie, newTrackGenre);
         a.preventDefault();
     }
@@ -54,7 +54,7 @@ class AddMovie extends Component{
                         <label htmlFor="name">Title</label>
                     </div>
                     <div className="input-field">
-                        <input name="ReleaseDate" type="text" className="datepicker" ref="releasedate"/>
+                        <input name="ReleaseDate" type="date" className="datepicker" ref="releasedate"/>
                         <label htmlFor="ReleaseDate">Release Date</label>
                     </div>
                     Runtime:
@@ -73,8 +73,8 @@ class AddMovie extends Component{
                         <label htmlFor="rating"></label>
                     </div>
 
-                    <div className="input-field">
-                        <select ref="genre">
+                    <div className="">
+                        <select ref="genre" className="browser-default">
                         <option value="" disabled selected hidden>Choose movie genre</option>
                         <option value="3">Anime Features</option>
                         <option value="4">Thrillers</option>
@@ -89,7 +89,6 @@ class AddMovie extends Component{
                         <option value="26">Horror</option>
                         <option value="32">Shows</option>                       
                         </select>
-                        <label>Genre</label>
                     </div> 
 
                     <div className="input-field">
@@ -98,7 +97,7 @@ class AddMovie extends Component{
                     </div>
                     <input type="submit" value="ADD" className="btn right" />
                 </form>
-                <Link className="btn yellow darken-3" to="/">Back</Link>
+                <Link className="btn yellow darken-3" to="/home">Back</Link>
             </div>
             
         )

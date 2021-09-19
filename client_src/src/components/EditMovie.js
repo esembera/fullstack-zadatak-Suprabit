@@ -24,6 +24,9 @@ class EditMovie extends Component{
         this.getGenre();
         this.getMovies();
     }
+    componentDidUpdate(){
+        this.render();
+    }
     
     getMovies(){
         let movieID = this.props.match.params.id;
@@ -71,7 +74,7 @@ class EditMovie extends Component{
             url: `http://localhost:3000/movie/${this.state.trackid}`,
             data: newMovie
         }).then(response => {
-            this.props.history.push('/');
+            this.props.history.push('/home');
         }).catch(err => console.log(err));
 
         // editanje zanra radi ali put request ne radi...
@@ -173,7 +176,7 @@ class EditMovie extends Component{
                     </div> 
                     <input type="submit" value="Save" className="btn right" />
                 </form>
-                <Link className="btn yellow darken-3" to="/">Back</Link>
+                <Link className="btn yellow darken-3" to="/home">Back</Link>
             
             </div>
         )

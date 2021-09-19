@@ -73,7 +73,7 @@ class Movie extends Component{
         axios.delete(`http://localhost:3000/track/${movieID}`);
         axios.delete(`http://localhost:3000/trackgenre/${movieID}`);
         axios.delete(`http://localhost:3000/movie/${movieID}`).then(response => {
-            this.props.history.push('/');
+            this.props.history.push('/home');
         }).catch(err => console.log(err));
     }
 
@@ -94,7 +94,7 @@ class Movie extends Component{
                     <li className="collection-item">Genre: {this.state.genreName.genrename}</li>
                     <li className="collection-item">Income: {formatter.format(this.state.movieDet.boxincome)}</li>                    
                 </ul>
-                <Link className="btn yellow darken-3" to="/">Back</Link> 
+                <Link className="btn yellow darken-3" to="/home">Back</Link> 
                 <Link className ="right btn blue darken-2"to={`/movie/edit/${this.state.details.trackid}`}> Edit </Link>
             </div>
         )

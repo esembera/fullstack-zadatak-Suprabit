@@ -5,16 +5,17 @@ import Home from './Home';
 import AddMovie from './AddMovie';
 import EditMovie from './EditMovie';
 import Login from './/Login';
+import ProtectedRoute from '../auth/protected-route';
 
 const Main = () => (
 
 <main>
     <Switch>
-        {//<Route exact path ="/" component={Login} />
-        }<Route exact path ="/" component={Home}/>
-        <Route exact path = "/movie/edit/:id" component={EditMovie}/>
-        <Route exact path = "/movie/add" component={AddMovie}/>
-        <Route exact path ="/movie/:id" component={Movie}/>
+        <Route exact path ="/" component={Login} />
+        <ProtectedRoute exact path ="/home" component={Home}/>
+        <ProtectedRoute exact path = "/movie/edit/:id" component={EditMovie}/>
+        <ProtectedRoute exact path = "/movie/add" component={AddMovie}/>
+        <ProtectedRoute exact path ="/movie/:id" component={Movie}/>
         
     </Switch>
 </main>

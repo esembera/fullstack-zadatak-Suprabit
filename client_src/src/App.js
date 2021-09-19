@@ -1,15 +1,28 @@
 import './App.css';
 import Main from './components/Main'
 import Navbar from './components/Navbar'
+import { useAuth0 } from "@auth0/auth0-react";
+import Loading from './components/loading';
 
 function App() {
-  return (
-    <div>
-      <Navbar/>
-      <div className="container">
-	    <Main/>
+
+  const { isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0;
+
+  if(isLoading){
+    return(
+      <div>
+        <Loading />
       </div>
-    </div>
+    );
+  }
+  return (
+      <div>
+        <Navbar />
+        <div className="container">
+        <Main/>
+        </div>
+      </div>
   );
 }
 
