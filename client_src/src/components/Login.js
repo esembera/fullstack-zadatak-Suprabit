@@ -13,15 +13,19 @@ const Login = () => {
     if(isAuthenticated){
         return(
             <div className="card-panel yellow darken-3 center">
-                    Welcome {user.name} <br />
+                    Welcome {user.name}! <br />
+                    Click <a href="/home"> here </a> to get info about more than 1000 movies.
             </div>
         )
 
     }else{
         return(
-            <div className="card-panel yellow darken-3 center">
-                You need to login to access MoviesDB <br />
-                <AuthenticationButton />
+            <div>
+                <h1 className="center">Welcome to MoviesDB!</h1>
+                <div className="card-panel yellow darken-3 center">
+                    You need to login in order to access MoviesDB <br /> <br />
+                    <AuthenticationButton />
+                </div>
             </div>
         )
     }

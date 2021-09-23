@@ -11,11 +11,15 @@ const Navbar = () => {
         <div>
             <nav>
             <div className="yellow darken-3 nav-wrapper">
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li className="right"><AuthenticationButton /></li>
+                <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a href='/home'>Home</a></li>
                     <li><a href='/movie/add'>Add Movie</a></li>
-
+                </ul>
+                <ul className="right">
+                    <li>
+                        <AuthenticationButton />
+                    </li>
+                </ul>
                     {/* <li><nav>
                         <div className="yellow darken-3 nav-wrapper">
                         <form>
@@ -26,9 +30,7 @@ const Navbar = () => {
                             </div>
                     </form>
                     </div>
-                    </nav></li> */}
-                </ul>
-                
+                    </nav></li> */}                
                 </div>
             </nav>
         </div>

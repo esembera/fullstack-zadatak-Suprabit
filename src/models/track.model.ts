@@ -48,6 +48,11 @@ export class Track extends Entity {
   })
   trackrating?: number;
 
+  @property({
+    type: 'string',
+  })
+  email?: string;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data
