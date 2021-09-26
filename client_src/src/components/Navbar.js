@@ -19,18 +19,7 @@ const Navbar = () => {
                     <li>
                         <AuthenticationButton />
                     </li>
-                </ul>
-                    {/* <li><nav>
-                        <div className="yellow darken-3 nav-wrapper">
-                        <form>
-                            <div className="input-field">
-                            <input id="search" type="search" required/>
-                            <label className="label-icon" htmlFor="search"><i className="material-icons left">search</i></label>
-                            <i className="material-icons">close</i>
-                            </div>
-                    </form>
-                    </div>
-                    </nav></li> */}                
+                </ul>               
                 </div>
             </nav>
         </div>
