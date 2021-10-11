@@ -8,7 +8,6 @@ class Movie extends Component{
         super(props);
         this.state = {
             details: '',
-            genre: '',
             genreName: '',
             movieDet: ''
         }
@@ -39,30 +38,21 @@ class Movie extends Component{
 
     getGenre(){
         let movieID = this.props.match.params.id;
-        axios.get(`http://localhost:3000/trackgenre/${movieID}`).then(response => {
-            this.setState({genres: response.data}, () => {
-                //console.log(this.state);
-                let genreID = response.data.genreid;
-                axios.get(`http://localhost:3000/genre/${genreID}`).then(response => {
-                this.setState({genreName: response.data}, () => {
-                    //console.log(this.state);
-                })
-                }).catch(err => console.log(err));
-                })
+        axios.get(`http://localhost:3000/tracks/${movieID}/genres`).then(response => {
+            this.setState({genreName: response.data[0].genrename}, () => {
+                //console.log(response.data);
+            })
         }).catch(err => console.log(err));
     }
 
     getMovieDet(){
         let movieID = this.props.match.params.id;
-        axios.get(`http://localhost:3000/movie/${movieID}`).then(response => {
+        axios.get(`http://localhost:3000/tracks/${movieID}/movie`).then(response => {
             this.setState({movieDet: response.data}, () => {
-                //console.log(this.state);
+                //console.log(this.state.genre[0].genrename);
                 if(response.data.boxincome == null){
                     response.data.boxincome = "Unknown"
-                }else{
-                    response.data.boxincome = response.data.boxincome;
-                }
-                
+                }                
             })
         })
         .catch(err => console.log(err));
@@ -71,9 +61,9 @@ class Movie extends Component{
     onDelete(){
         let movieID = this.state.details.trackid;
         axios.delete(`http://localhost:3000/track/${movieID}`);
-        axios.delete(`http://localhost:3000/trackgenre/${movieID}`);
-        axios.delete(`http://localhost:3000/movie/${movieID}`).then(response => {
-            this.props.history.push('/home');
+        axios.delete(`http://localhost:3000/tracks/${movieID}/genres`);
+        axios.delete(`http://localhost:3000/tracks/${movieID}/movie`).then(response => {
+           this.props.history.push('/home');
         }).catch(err => console.log(err));
     }
 
@@ -91,7 +81,7 @@ class Movie extends Component{
                     <li className="collection-item">Release date: {this.state.details.releasedate}</li>
                     <li className="collection-item">Runtime: {this.state.details.hours}h {this.state.details.minutes}min</li>
                     <li className="collection-item">Age Rating: {this.state.details.tagrestriction}</li>
-                    <li className="collection-item">Genre: {this.state.genreName.genrename}</li>
+                    <li className="collection-item">Genre: {this.state.genreName}</li>
                     <li className="collection-item">Income: {formatter.format(this.state.movieDet.boxincome)}</li>                    
                 </ul>
                 <Link className="btn yellow darken-3" to="/home">Back</Link> 

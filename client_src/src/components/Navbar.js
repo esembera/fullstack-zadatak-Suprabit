@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AuthenticationButton from './authentication-button';
 import { useAuth0 } from "@auth0/auth0-react";
 

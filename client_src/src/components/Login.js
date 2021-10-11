@@ -14,7 +14,7 @@ const Login = () => {
         return(
             <div className="card-panel yellow darken-3 center">
                     Welcome {user.name}! <br />
-                    Click <a href="/home"> here </a> to get info about more than 1000 movies.
+                    Go to <a href="/home"> home </a> to get info about more than 1000 movies.
             </div>
         )
 

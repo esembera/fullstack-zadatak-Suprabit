@@ -1,4 +1,7 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
+import {Genre} from './genre.model';
+import {Trackgenre} from './trackgenre.model';
+import {Movie} from './movie.model';
 
 @model({settings: {idInjection: false, postgresql: {schema: 'public', table: 'track'}}})
 export class Track extends Entity {
@@ -53,6 +56,11 @@ export class Track extends Entity {
   })
   email?: string;
 
+  @hasMany(() => Genre, {through: {model: () => Trackgenre}})
+  genres: Genre[];
+
+  @hasOne(() => Movie)
+  movie: Movie;
   // Define well-known properties here
 
   // Indexer property to allow additional data

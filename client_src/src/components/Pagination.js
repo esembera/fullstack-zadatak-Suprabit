@@ -16,7 +16,7 @@ const Pagination = ({moviesPerPage, movies, paginate, currentPage}) => {
 
             
             {pageNumbers.map(number => (
-                <li key={number} className="waves-effect" style={currentPage == number ? {backgroundColor:"#f9a825"} : {} }><a onClick={() => paginate(number)}>{number}</a>
+                <li key={number} className="waves-effect" style={currentPage === number ? {backgroundColor:"#f9a825"} : {} }><a onClick={() => paginate(number)}>{number}</a>
 
                 </li>
         

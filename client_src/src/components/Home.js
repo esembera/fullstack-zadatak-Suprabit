@@ -41,9 +41,6 @@ class Home extends Component{
     }
 
     render(){
-        const indexOfLastMovie = this.state.currentPage * this.state.moviesPerPage;
-        const indexOfFirstMovie = indexOfLastMovie - this.state.moviesPerPage;
-
         const paginate = (pageNumber) => {
             //console.log(this.state.currentPage);    
             this.setState({currentPage: pageNumber})

@@ -22,6 +22,15 @@ export class Trackgenre extends Entity {
   })
   genreid: number;
 
+  @property({
+    type: 'number',
+  })
+  trackId?: number;
+
+  @property({
+    type: 'number',
+  })
+  genreId?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

@@ -18,6 +18,10 @@ export class Movie extends Entity {
   })
   boxincome?: number;
 
+  @property({
+    type: 'number',
+  })
+  trackId?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

@@ -6,7 +6,6 @@ import Loading from './components/loading';
 
 function App() {
 
-  const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0;
 
   if(isLoading){
